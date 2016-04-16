@@ -6,6 +6,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import login from './login';
 import vote from './vote';
 import dashboard from './dashboard';
+import TimeTillClose from './time-till-close';
 
 
 render((
@@ -13,8 +14,10 @@ render((
 	<Router history={hashHistory}>
 		<Route path="/">
 			<IndexRoute component={login}></IndexRoute>
-			<Route path="/vote" component={vote}></Route>
-			<Route path="/dashboard" component={dashboard}></Route>
+			<Route path="voting/" component={TimeTillClose}>
+				<Route path="/voting/vote" component={vote}></Route>
+				<Route path="/voting/dashboard" component={dashboard}></Route>
+			</Route>
 
 		</Route>
 

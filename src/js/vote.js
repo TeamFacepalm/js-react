@@ -7,7 +7,7 @@ export default class Vote extends Component{
 
 	clickHandler(){
 
-		hashHistory.push('/dashboard');
+		hashHistory.push('voting/dashboard');
 
 	}
 

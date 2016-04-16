@@ -3,3 +3,32 @@
 // Turn on freq used libraries
 // @import 'normalize-css/normalize';
 // @import 'font-awesome/scss/font-awesome';
+
+body{
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box;
+
+}
+
+
+.dropzone-img{
+
+	width: 200px;
+
+}
+
+.login-signup-wrapper, .form-wrapper{
+
+	width: 800px;
+	margin: auto;
+	color: yellow;
+
+}
+
+.form-wrapper{
+
+	padding: 20px;
+
+}
