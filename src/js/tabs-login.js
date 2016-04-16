@@ -84,8 +84,10 @@ export default class TabsExampleControlled extends Component {
 							      type="password"
 							      name="password"
 							/><br/>
+            <div className="login-submit-btn">
 						<RaisedButton type="submit" label="Login" secondary={true} />   
-				</SSF>
+				    </div>
+        </SSF>
 			</Paper>
           </div>
         </Tab>

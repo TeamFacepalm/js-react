@@ -9,8 +9,6 @@ import TextField from 'material-ui/lib/text-field';
 import MaterialUi from 'material-ui';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Paper from 'material-ui/lib/paper';
-import SelectField from 'material-ui/lib/select-field';
-import MenuItem from 'material-ui/lib/menus/menu-item';
 
 export default class SignUp extends Component {
 
@@ -47,18 +45,19 @@ export default class SignUp extends Component {
 	render() {
 		return (
 				<div className="form-wrapper">
+
 					<Paper zDepth={1} style={{padding: 20}}>
 						<h1 className="form_header">Create Account</h1>
 							<SSF onData={this.dataHandler}>
 							  <div className="form-wrapper">
 
-								<select name="district-name">
+								<select className="select-btn" name="district-name">
 
-									<option value={1}>1</option>
-									<option value={2}>2</option>
-									<option value={3}>3</option>
-									<option value={4}>4</option>
-									<option value={5}>5</option>
+									<option value={1}>District 1</option>
+									<option value={2}>District 2</option>
+									<option value={3}>District 3</option>
+									<option value={4}>District 4</option>
+									<option value={5}>District 5</option>
 
 								</select>
 								</div>
@@ -92,8 +91,8 @@ export default class SignUp extends Component {
 								      floatingLabelText="Social Security Number"
 								      name="SSN"
 								    /><br/>
-								<Dropzone onDrop={::this.dropHandler}>
-									<span className="drop-span">Drag a photo of license Here</span>
+								    <span className="drop-span">Drag a photo of license Here</span>
+								<Dropzone className="dropzone" onDrop={::this.dropHandler}>
 									<input type="hidden" value={this.state.preview} name="photo"/>
 									<img className="dropzone-img" src={this.state.preview}/>
 								</Dropzone> 
