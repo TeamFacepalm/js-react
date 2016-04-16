@@ -13,7 +13,8 @@ export default class Dashboard extends Component{
 		this.state = {
 
 			bernieValue: 0,
-			trumpValue: 0
+			trumpValue: 0,
+			pollCloseCountdown: 10
 
 		}
 
@@ -32,23 +33,34 @@ export default class Dashboard extends Component{
 			myDoughnutChart.update();
 
 			this.bernieValue = myDoughnutChart.segments[0].value;
+
+
+			/////////finish percents
+			// this.berniePercent = 
 			this.trumpValue = myDoughnutChart.segments[1].value;
+
+			console.log(myDoughnutChart.segments[1]);
 			
 
 
 			console.log("bernie votes =>",this.bernieValue);
 
+			let { pollCloseCountdown } = this.state;
+			pollCloseCountdown--;
+
 			this.setState({
 
 				bernieValue: this.bernieValue,
-				trumpValue: this.trumpValue
+				trumpValue: this.trumpValue,
+				pollCloseCountdown
 
 			});			
 			
 
-			if (myDoughnutChart.segments[0].value > 500 || myDoughnutChart.segments[1].value > 500){
+			if (pollCloseCountdown <= 0 ){
 
 				clearInterval(votepolling);
+				alert("election over");
 
 			}
 
