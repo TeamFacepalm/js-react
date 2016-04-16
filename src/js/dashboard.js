@@ -6,8 +6,59 @@ import { ajax } from 'jquery';
 
 export default class Dashboard extends Component{
 
+	constructor(...args){
+
+		super(...args);
+
+		this.state = {
+
+			bernieValue: 0,
+			trumpValue: 0
+
+		}
+
+	}
+
 
 	componentDidMount(){
+
+		let updateVotes = () => {
+
+			// let { bernieValue } = this.state;
+			
+
+			myDoughnutChart.segments[0].value += Math.floor(Math.random()*10);
+			myDoughnutChart.segments[1].value += Math.floor(Math.random()*10);
+			myDoughnutChart.update();
+
+			this.bernieValue = myDoughnutChart.segments[0].value;
+			this.trumpValue = myDoughnutChart.segments[1].value;
+			
+
+
+			console.log("bernie votes =>",this.bernieValue);
+
+			this.setState({
+
+				bernieValue: this.bernieValue,
+				trumpValue: this.trumpValue
+
+			});			
+			
+
+			if (myDoughnutChart.segments[0].value > 500 || myDoughnutChart.segments[1].value > 500){
+
+				clearInterval(votepolling);
+
+			}
+
+		}
+
+		// let votepolling = setInterval(updateVotes, 3000);
+		// votepolling();
+
+		let votepolling = setInterval(updateVotes, 1000);
+
 
 		////ajax shit
 		// ajax().then( data => {
@@ -19,22 +70,16 @@ export default class Dashboard extends Component{
 		// })
 		let data = [
 				    {
-				        value: 300,
+				        value: 0,
 				        color:"#F7464A",
 				        highlight: "#FF5A5E",
-				        label: "Red"
+				        label: "Bernie"
 				    },
 				    {
-				        value: 50,
-				        color: "#46BFBD",
-				        highlight: "#5AD3D1",
-				        label: "Green"
-				    },
-				    {
-				        value: 100,
+				        value: 0,
 				        color: "#FDB45C",
 				        highlight: "#FFC870",
-				        label: "Yellow"
+				        label: "Trump"
 				    }
 				]
 		let options = {
@@ -67,25 +112,30 @@ export default class Dashboard extends Component{
 
 			}
 
-		let ctx = document.getElementById("myChart").getContext("2d");
-				let myDoughnutChart = new Chart(ctx).Doughnut(data,options);
+		// let ctx = document.getElementById("myChart").getContext("2d");
+		let ctx = this.canvas.getContext("2d");
+		let myDoughnutChart = new Chart(ctx).Doughnut(data,options);
 
 				
 	}
 
-	render(){
-		
-		
+	// updateDashboard(){
 
+	// 		console.log(myDoughnutChart.segments[0].value);
+
+	// 	}
+
+	render(){
 
 		return(
 
 			<div>
 
 				<h1>Welcome to the dashboard</h1>
-				<canvas id="myChart" width="400" height="400"></canvas>
+				<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
+				<div>Bernie's Vote Total:{this.state.bernieValue}</div>
+				<div>Trump's Vote Total:{this.state.trumpValue}</div>
 				
-
 			</div>
 
 			);
