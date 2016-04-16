@@ -16,13 +16,62 @@ body{
 .dropzone-img{
 
 	width: 200px;
+	background-color: none;
+		&:hover {
+			opacity: .7;
+		}
 
 }
 
 .login-wrapper, .form-wrapper{
 
-	width: 800px;
-	margin: auto;
+	width: 800px !important;
+	margin: auto !important;
+}
+
+.login-wrapper {
 
 }
 
+.login-signup-wrapper{
+	text-align: center;
+}
+
+.select-btn {
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  cursor: auto;
+  border: 2px inset;
+  box-shadow: none;
+  width: 267px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+  font-size: 16px;
+  height: 35px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  left: -2%;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.dropzone {
+  position: relative;
+  left: 36%;
+  margin-top: 25px;
+  width: 27%;
+  margin-bottom: 25px;
+}
+
+.drop-span {
+  position: relative;
+  margin-top: 15px;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+}
