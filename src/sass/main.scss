@@ -79,3 +79,26 @@ h1 {
   font-family: 'Roboto', sans-serif;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.vote-div { 
+	width: 800px !important;
+	margin: auto !important;
+	height: 50%;
+	padding: 0;
+}
+
+div.vote-paper {
+	padding: 0;
+	height: 500px;
+}
+
+.vote-div-candidates {
+	position: relative;
+	top: 100%;
+	left: 40%;
+	padding-top: 50px;
+}
+
+.vote-submit-btn {
+	margin: auto;
+}
