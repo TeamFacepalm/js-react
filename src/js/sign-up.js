@@ -9,8 +9,6 @@ import TextField from 'material-ui/lib/text-field';
 import MaterialUi from 'material-ui';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Paper from 'material-ui/lib/paper';
-import SelectField from 'material-ui/lib/select-field';
-import MenuItem from 'material-ui/lib/menus/menu-item';
 
 export default class SignUp extends Component {
 
@@ -47,17 +45,10 @@ export default class SignUp extends Component {
 	render() {
 		return (
 				<div className="form-wrapper">
-					<Paper zDepth={4}>
+					<Paper zDepth={1}>
 						<h1 className="form_header">Create Account</h1>
 							<SSF onData={this.dataHandler}>
 							  <div className="form-wrapper">
-							  <SelectField value={this.state.value} onChange={this.handleChange}>
-								  <MenuItem value={1} primaryText="District 1"/>
-								  <MenuItem value={2} primaryText="District 2"/>
-								  <MenuItem value={3} primaryText="District 3"/>
-								  <MenuItem value={4} primaryText="District 4"/>
-								  <MenuItem value={5} primaryText="District 5"/>
-								</SelectField>
 
 								<select name="district-name">
 
