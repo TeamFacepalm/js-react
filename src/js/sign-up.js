@@ -45,7 +45,8 @@ export default class SignUp extends Component {
 	render() {
 		return (
 				<div className="form-wrapper">
-					<Paper zDepth={1}>
+
+					<Paper zDepth={1} style={{padding: 20}}>
 						<h1 className="form_header">Create Account</h1>
 							<SSF onData={this.dataHandler}>
 							  <div className="form-wrapper">
