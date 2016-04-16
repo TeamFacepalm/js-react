@@ -10,10 +10,16 @@ export default class TimeTillClose extends Component{
 
 		this.state = {
 
-			countdown: 10
+			countdown: 30
 
 		}
 
+
+	}
+
+	countdownMsg(){
+
+		return this.state;
 
 	}
 
@@ -27,7 +33,7 @@ export default class TimeTillClose extends Component{
 				clearInterval(countInt);
 				///POST request: username and score
 
-				
+				document.querySelector('.countdown').innerHTML = "Polls Closed";
 
 			}
 			this.setState({countdown});
@@ -38,7 +44,7 @@ export default class TimeTillClose extends Component{
 
 		return(
 			<div>
-				<h1>Polls close in {this.state.countdown} seconds.</h1>
+				<h1 className="countdown">Polls close in {this.state.countdown} seconds.</h1>
 				{this.props.children}
 			</div>
 

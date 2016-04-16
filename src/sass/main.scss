@@ -9,6 +9,7 @@ body{
 	margin: 0 !important;
 	padding: 0 !important;
 	box-sizing: border-box;
+	font-family: 'Lato', Helvetica, arial, sans-serif;
 
 }
 
@@ -80,6 +81,7 @@ h1 {
   color: rgba(0, 0, 0, 0.6);
 }
 
+<<<<<<< HEAD
 .vote-div { 
 	width: 800px !important;
 	margin: auto !important;
@@ -101,4 +103,43 @@ div.vote-paper {
 
 .vote-submit-btn {
 	margin: auto;
+=======
+.dashboard-info{
+
+	display: flex;
+	font-size: 2em;
+	justify-content: space-around;
+	
+
+}
+
+
+.bernie-data{
+
+	color: #5B90BF;
+	align-self: flex-end;
+
+}
+
+
+.trump-data{
+
+	color: #F7464A;
+	align-self: flex-end;
+
+}
+
+.countdown{
+
+	text-align: center;
+
+}
+
+.dashboard-title{
+
+	font-size: 3em;
+	text-align: center;
+	margin: 20px;
+
+>>>>>>> 72bba1479f4957e4cc2e5ecf6bd0b729bcb91c4d
 }
