@@ -14,7 +14,9 @@ export default class Dashboard extends Component{
 
 			bernieValue: 0,
 			trumpValue: 0,
-			pollCloseCountdown: 10
+			pollCloseCountdown: 30,
+			trumpPercent: 0,
+			berniePercent: 0
 
 		}
 
@@ -36,9 +38,10 @@ export default class Dashboard extends Component{
 
 
 			/////////finish percents
-			// this.berniePercent = 
+			
 			this.trumpValue = myDoughnutChart.segments[1].value;
-
+			this.berniePercent = myDoughnutChart.segments[0].value / (myDoughnutChart.segments[1].value + myDoughnutChart.segments[0].value);
+			this.trumpPercent = myDoughnutChart.segments[1].value / (myDoughnutChart.segments[1].value + myDoughnutChart.segments[0].value);
 			console.log(myDoughnutChart.segments[1]);
 			
 
@@ -52,7 +55,9 @@ export default class Dashboard extends Component{
 
 				bernieValue: this.bernieValue,
 				trumpValue: this.trumpValue,
-				pollCloseCountdown
+				pollCloseCountdown,
+				trumpPercent: this.trumpPercent,
+				berniePercent: this.berniePercent
 
 			});			
 			
@@ -60,7 +65,7 @@ export default class Dashboard extends Component{
 			if (pollCloseCountdown <= 0 ){
 
 				clearInterval(votepolling);
-				alert("election over");
+				console.log("election over");
 
 			}
 
@@ -83,14 +88,14 @@ export default class Dashboard extends Component{
 		let data = [
 				    {
 				        value: 0,
-				        color:"#F7464A",
-				        highlight: "#FF5A5E",
+				        color:"#5B90BF",
+				        highlight: "#5B90BF",
 				        label: "Bernie"
 				    },
 				    {
 				        value: 0,
-				        color: "#FDB45C",
-				        highlight: "#FFC870",
+				        color: "#F7464A",
+				        highlight: "#FF5A5E",
 				        label: "Trump"
 				    }
 				]
@@ -143,11 +148,24 @@ export default class Dashboard extends Component{
 
 			<div>
 
-				<h1>Welcome to the dashboard</h1>
-				<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
-				<div>Bernie's Vote Total:{this.state.bernieValue}</div>
-				<div>Trump's Vote Total:{this.state.trumpValue}</div>
+				<h1 className="dashboard-title">Nationwide Results</h1>
 				
+				<div className="dashboard-info">
+
+				<div className="trump-data">
+					<div>Candidate Trump: {(this.state.trumpPercent * 100).toFixed(2)}%</div>
+					<div>Total votes: {this.state.trumpValue}</div>
+				</div>
+
+				<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
+				
+				<div className="bernie-data">
+					
+					<div>Candidate Sanders: {(this.state.berniePercent * 100).toFixed(2)}%</div>
+					<div>Total votes: {this.state.bernieValue}</div>
+				</div>
+
+				</div>
 			</div>
 
 			);
