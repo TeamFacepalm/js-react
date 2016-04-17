@@ -97,12 +97,13 @@ export default class TabsExampleControlled extends Component {
         // style={{backgroundColor: `#8A8A8A`}}
         // onChange={this.handleChange}
       >
-        <Tab style={{backgroundColor: 'grey'}} label="Login" value="a" onClick={this.handleChange.bind(TabsExampleControlled, "a")}>
+
+        <Tab style={{backgroundColor: `#8A8A8A`}} label="Login" value="a" onClick={this.handleChange.bind(TabsExampleControlled, "a")}>
           <div  className="login-signup-wrapper">
             <Paper zDepth={1} style={{padding: 20, paddingBottom: 140, backgroundColor: 'transparent'}}>
 
 
-				<h1 className="form_header">VOTER</h1>
+				<h1 className="form_header_login">VOTER</h1>
        
 				<SSF onData={this.dataHandler}>   
 					<TextField
@@ -124,7 +125,7 @@ export default class TabsExampleControlled extends Component {
 			</Paper>
           </div>
         </Tab>
-        <Tab label="Sign Up" value="b" onClick={this.handleChange.bind(TabsExampleControlled, "b")}>
+        <Tab style={{backgroundColor: `#8A8A8A`}} label="Sign Up" value="b" onClick={this.handleChange.bind(TabsExampleControlled, "b")}>
           <div className="login-signup-wrapper">
             <SignUp />
           </div>

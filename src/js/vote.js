@@ -38,17 +38,22 @@ export default class Vote extends Component{
 						<div className="log-out-btn">
 							 
 		      	</div>
+						   <div>
+
 						    <div className="vote-div-candidates">
 						    	<div className="top-photo">
-												<img className="candidate-1-img" src="http://fillmurray.com/200/200"/>
-												<div><input className="radio-inputs" type="radio" name="radio-input">Candidate 1</input></div>
+												<img className="candidate-1-img" src="http://40.media.tumblr.com/d60967c9259867dd7a7a76721453c372/tumblr_nv3ta4kOkN1uh0k0ao1_1280.png"/>
+												<div className="radio-div"><input className="radio-inputs" type="radio" name="radio-input">Candidate 1</input></div>
 									</div>
 									<div className="top-photo">  	
-										  	<img className="candidate-1-img" src="http://fillmurray.com/200/200"/>
-										  	<div><input className="radio-inputs" type="radio" name="radio-input">Candidate 2</input></div>
+										  	<img className="candidate-1-img" src="http://www.smh.com.au/content/dam/images/g/h/j/i/x/i/image.related.articleLeadwide.620x349.ghjiuf.png/1439854780030.jpg"/>
+										  	<div className="radio-div"><input className="radio-inputs" type="radio" name="radio-input">Candidate 2</input></div>
 									</div>
+									
 								</div>
-								<div className="vote-submit-btn">	<RaisedButton type="submit" label="Submit" secondary={true}/></div>
+								<div className="submit-btn-container">	<RaisedButton className="real-vote-btn" style={{width: '100%', display: 'block'}} type="submit" label="Submit" secondary={true}/></div>
+								</div>
+								
 					
 					</SSF>
 			</div>

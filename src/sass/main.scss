@@ -26,12 +26,28 @@ body{
 
 }
 
+.mui-prepared > div {
+	background-color: #8A8A8A !important;
+}
+
 .form_header{
   font-family: 'Archivo Black', sans-serif;
   font-size: 52px;
   margin: 0;
   margin-bottom: 10px;
-  color: #8A8A8A;
+  color: #00bcd4;
+  text-shadow: 2px 2px #8A8A8A;
+}
+
+.form_header_login{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 52px;
+  margin: 0;
+  margin-bottom: 10px;
+  color: #00bcd4;
+  text-shadow: 2px 2px #8A8A8A;
+  position: relative;
+  left: -1%;
 }
 
 .login-wrapper, .form-wrapper{
@@ -43,7 +59,6 @@ body{
 .pink-shape {
   position: absolute;
   top: -17.5%;
-  left: 0.95%;
   z-index: 0;
   width: 100%;
 }
@@ -56,7 +71,7 @@ body{
   top: 118.5%;
 }
 
-.login-wrapper {
+.save-form-btn {
 
 }
 
@@ -91,7 +106,7 @@ div.login-signup-wrapper div {
   height: 35px;
   font-family: 'Roboto', sans-serif;
   position: relative;
-  left: -2%;
+  left: 0%;
 }
 
 h1 {
@@ -128,16 +143,33 @@ div.vote-paper {
 }
 
 .vote-div-candidates {
-display: flex;
-align-items: center; 
-padding-top: 105px;
-justify-content: space-around;
+	display: flex;
+	align-items: center; 
+	padding-top: 105px;
+	justify-content: space-around;
+}
+
+.candidate-1-img {
+	width: 375px;
+    height: 375px;
+	object-fit: cover;
+}
+
+.radio-inputs {
+	border: 0px !important;
+	margin-right: 20px;
+	transform: scale(1.5) !important;
+}
+
+div.radio-div {
+	font-size: 40px;
+	font-family: 'Archivo Black', sans-serif;
 }
 
 .blue-header {
 	margin: auto;
 	height: 90px;
-	background-color: #00bcd4;
+	background-color: #8A8A8A;
 	padding: 0;
 }
 
@@ -154,12 +186,17 @@ justify-content: space-around;
   top: -72px;
 }
 
-.vote-submit-btn {
+.submit-btn-container {
   margin: auto !important;
-  padding-top: 50px;
+  padding-top: 30px;
   text-align: center;
   }
 
+.real-vote-btn {
+  margin: auto !important;
+  padding-top: 30px;
+  width: 100%;
+}
 
 .dashboard-info{
 
@@ -202,6 +239,8 @@ justify-content: space-around;
 
 .radio-inputs {
 	font-family: 'Roboto', sans-serif;
+	padding-bottom: 20px;
+	vertical-align: 7px;
 }
 
 
@@ -236,3 +275,4 @@ justify-content: space-around;
 .tabs-header {
 	color: #a6a6a6;
 }
+
