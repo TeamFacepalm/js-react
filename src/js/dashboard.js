@@ -15,7 +15,6 @@ export default class Dashboard extends Component{
 
 			bernieValue: 0,
 			trumpValue: 0,
-			pollCloseCountdown: 30,
 			trumpPercent: 0,
 			berniePercent: 0
 
@@ -30,19 +29,19 @@ export default class Dashboard extends Component{
 
 		{
 
-		title: 'district1',
+		title: 'Fulton',
 		bernieValue: 100,
 		trumpValue: 85 
 		},
 		{
 
-		title: 'district2',
+		title: 'Cobb',
 		bernieValue: 150,
 		trumpValue: 85 
 		},
 		{
 
-		title: 'district3',
+		title: 'Decatur',
 		bernieValue: 100,
 		trumpValue: 87 
 		}
@@ -57,8 +56,6 @@ export default class Dashboard extends Component{
 		console.log(this.districts);
 
 		let updateVotes = () => {
-
-			// let { bernieValue } = this.state;
 			
 
 			myDoughnutChart.segments[0].value += Math.floor(Math.random()*14);
@@ -66,34 +63,27 @@ export default class Dashboard extends Component{
 			myDoughnutChart.update();
 
 			this.bernieValue = myDoughnutChart.segments[0].value;
-
-
-			/////////finish percents
-			
 			this.trumpValue = myDoughnutChart.segments[1].value;
-			this.berniePercent = myDoughnutChart.segments[0].value / (myDoughnutChart.segments[1].value + myDoughnutChart.segments[0].value);
-			this.trumpPercent = myDoughnutChart.segments[1].value / (myDoughnutChart.segments[1].value + myDoughnutChart.segments[0].value);
-			console.log(myDoughnutChart.segments[1]);
+
+			///////// percents
 			
-
-
-			console.log("bernie votes =>",this.bernieValue);
-
-			let { pollCloseCountdown } = this.state;
-			pollCloseCountdown--;
-
+			
+			this.berniePercent = this.bernieValue / (this.bernieValue + this.trumpValue);
+			this.trumpPercent  = this.trumpValue / (this.bernieValue + this.trumpValue);
+			
 			this.setState({
 
 				bernieValue: this.bernieValue,
 				trumpValue: this.trumpValue,
-				pollCloseCountdown,
 				trumpPercent: this.trumpPercent,
 				berniePercent: this.berniePercent
 
-			});			
-			
+			});	
 
-			if (pollCloseCountdown <= 0 ){
+			console.log(this.props.countdown);		
+
+
+			if (this.props.countdown <= 1){
 
 				clearInterval(votepolling);
 				console.log("election over");
@@ -102,13 +92,11 @@ export default class Dashboard extends Component{
 
 		}
 
-		// let votepolling = setInterval(updateVotes, 3000);
-		// votepolling();
 
 		let votepolling = setInterval(updateVotes, 1000);
 
 
-		////ajax shit
+		////ajax stuff
 		// ajax().then( data => {
 
 		// 	////render general election aggregate data 
@@ -184,6 +172,10 @@ export default class Dashboard extends Component{
 		// 	  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
 		// 	};
 
+		console.log("im rendering");
+
+		let { trumpPercent } = this.state;
+
 		return(
 
 			<div>
@@ -193,7 +185,7 @@ export default class Dashboard extends Component{
 				<div className="dashboard-info">
 
 					<div className="trump-data">
-						<div>Candidate Trump: {(this.state.trumpPercent * 100).toFixed(2)}%</div>
+						<div>Candidate Trump: {(trumpPercent * 100).toFixed(2)}%</div>
 						<div>Total votes: {this.state.trumpValue}</div>
 					</div>
 
@@ -203,6 +195,7 @@ export default class Dashboard extends Component{
 						
 						<div>Candidate Sanders: {(this.state.berniePercent * 100).toFixed(2)}%</div>
 						<div>Total votes: {this.state.bernieValue}</div>
+
 					</div>
 
 				</div>
@@ -211,11 +204,13 @@ export default class Dashboard extends Component{
 					<h2 className="dashboard-title">Voting by District</h2>
 
 					{this.districts.map( district => 
-						<div className="district">
+						<div className="district" key={district.title}>
 							<div className="district-title">{district.title}</div>
 							<div style={{borderBottom: '10px solid #5B90BF', width: `${((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Bernie: {((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
 
 							<div style={{borderTop: '10px solid #F7464A', width: `${((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+							<div style={{borderTop: '10px solid #F7464A', width: `${trumpPercent*100}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+
 						</div>)}
 
 				
