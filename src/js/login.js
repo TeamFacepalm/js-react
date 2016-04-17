@@ -65,7 +65,7 @@ export default class Login extends Component{
 				<img className="pink-shape" src="http://i.imgur.com/mzWS3dH.png"/>
 
 					<TabsExampleControlled />
-				<div className="yellow-field"></div>
+
 			
 				</div>
 

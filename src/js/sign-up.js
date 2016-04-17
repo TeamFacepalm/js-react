@@ -93,8 +93,8 @@ export default class SignUp extends Component {
 				<div className="form-wrapper">
 
 					<Paper zDepth={1} style={{padding: 20}}>
-						<h1 className="form_header">Create Account to Vote!</h1>
-							<Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '20'} } label="See the current results"/> </Link>
+						<h1 className="form_header">VOTER</h1>
+							<Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '0', marginBottom: '40'}} label="See the current results"/> </Link>
 							<SSF onData={::this.dataHandler}>
 							  <div className="form-wrapper">
 
