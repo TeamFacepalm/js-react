@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import SSF from 'react-simple-serial-form';
 import { hashHistory } from 'react-router';
 import { ajax } from 'jquery';
+import District from './district';
 
 export default class Dashboard extends Component{
 
@@ -22,15 +23,45 @@ export default class Dashboard extends Component{
 
 	}
 
+	componentWillMount(){
+
+
+		this.districts = [
+
+		{
+
+		title: 'district1',
+		bernieValue: 100,
+		trumpValue: 85 
+		},
+		{
+
+		title: 'district2',
+		bernieValue: 150,
+		trumpValue: 85 
+		},
+		{
+
+		title: 'district3',
+		bernieValue: 100,
+		trumpValue: 87 
+		}
+
+		]
+	}
+
 
 	componentDidMount(){
+
+
+		console.log(this.districts);
 
 		let updateVotes = () => {
 
 			// let { bernieValue } = this.state;
 			
 
-			myDoughnutChart.segments[0].value += Math.floor(Math.random()*10);
+			myDoughnutChart.segments[0].value += Math.floor(Math.random()*14);
 			myDoughnutChart.segments[1].value += Math.floor(Math.random()*10);
 			myDoughnutChart.update();
 
@@ -142,7 +173,16 @@ export default class Dashboard extends Component{
 
 	// 	}
 
+
 	render(){
+
+
+		// var bernieStyle = {
+		// 	  color: 'white',
+		// 	  backgroundImage: 'url(' + imgUrl + ')',
+		// 	  WebkitTransition: 'all', // note the capital 'W' here
+		// 	  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+		// 	};
 
 		return(
 
@@ -152,20 +192,35 @@ export default class Dashboard extends Component{
 				
 				<div className="dashboard-info">
 
-				<div className="trump-data">
-					<div>Candidate Trump: {(this.state.trumpPercent * 100).toFixed(2)}%</div>
-					<div>Total votes: {this.state.trumpValue}</div>
-				</div>
+					<div className="trump-data">
+						<div>Candidate Trump: {(this.state.trumpPercent * 100).toFixed(2)}%</div>
+						<div>Total votes: {this.state.trumpValue}</div>
+					</div>
 
-				<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
-				
-				<div className="bernie-data">
+					<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
 					
-					<div>Candidate Sanders: {(this.state.berniePercent * 100).toFixed(2)}%</div>
-					<div>Total votes: {this.state.bernieValue}</div>
-				</div>
+					<div className="bernie-data">
+						
+						<div>Candidate Sanders: {(this.state.berniePercent * 100).toFixed(2)}%</div>
+						<div>Total votes: {this.state.bernieValue}</div>
+					</div>
 
 				</div>
+
+				<div className="districts">
+					<h2 className="dashboard-title">Voting by District</h2>
+
+					{this.districts.map( district => 
+						<div className="district">
+							<div className="district-title">{district.title}</div>
+							<div style={{borderBottom: '10px solid #5B90BF', width: `${((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Bernie: {((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+
+							<div style={{borderTop: '10px solid #F7464A', width: `${((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+						</div>)}
+
+				
+				</div>
+
 			</div>
 
 			);
@@ -173,3 +228,25 @@ export default class Dashboard extends Component{
 	}
 
 }
+
+
+// {this.districts.map( district => {
+
+// 						<div>
+
+// 						<h1>{district.title}</h1>
+// 						<div>{district.bernieValue}</div>
+// 						<div>{district.trumpValue}</div>
+
+// 						</div>
+
+// 					})}
+
+
+
+
+// {districts.map( district => {
+
+// 					<District bernieVotes={district.bernieValue} trumpVotes={district.trumpValue} title={district.title}/>
+
+// 				})}

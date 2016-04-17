@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "jquery": "^2.2.3",
+    "js-cookie": "^2.1.1",
     "material-ui": "^0.14.4",
     "node-font-awesome": "^1.0.2",
     "react": "^0.14.7",
