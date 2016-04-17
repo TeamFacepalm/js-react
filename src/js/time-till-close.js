@@ -24,7 +24,7 @@ export default class TimeTillClose extends Component{
 
 	componentDidMount() {
 
-		window.pollsAreClosed = false;
+
 
 		let countInt = setInterval(() => {
 			let { countdown } = this.state;
@@ -35,7 +35,6 @@ export default class TimeTillClose extends Component{
 				///POST request: username and score
 
 				document.querySelector('.countdown').innerHTML = "Polls Closed";
-				pollsAreClosed = true;
 
 			}
 			this.setState({countdown});
