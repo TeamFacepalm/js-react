@@ -4,6 +4,8 @@
 // @import 'normalize-css/normalize';
 // @import 'font-awesome/scss/font-awesome';
 
+@import 'font-awesome/scss/font-awesome';
+
 body{
 
 	margin: 0 !important;
@@ -81,7 +83,6 @@ h1 {
   color: rgba(0, 0, 0, 0.6);
 }
 
-<<<<<<< HEAD
 .vote-div { 
 	width: 800px !important;
 	margin: auto !important;
@@ -95,22 +96,44 @@ div.vote-paper {
 }
 
 .vote-div-candidates {
-	position: relative;
-	top: 100%;
-	left: 40%;
-	padding-top: 50px;
+display: flex;
+align-items: center; 
+padding-top: 105px;
+justify-content: space-around;
+}
+
+.blue-header {
+	margin: auto;
+	width: 800px;
+	height: 90px;
+	background-color: #00bcd4;
+	padding: 0;
+}
+
+.fa-sign-out{
+  padding-left: 18px;
+  font-size: 20px;
+  padding-top: 8px;
+  display: inline-block;
+}
+
+.log-out-btn {
+  position: relative;
+  left: 21%;
+  top: -72px;
 }
 
 .vote-submit-btn {
-	margin: auto;
-=======
+  margin: auto !important;
+  padding-top: 50px;
+  text-align: center;
+  }
+
 .dashboard-info{
 
 	display: flex;
 	font-size: 2em;
-	justify-content: space-around;
-	
-
+	justify-content: space-around;	
 }
 
 
@@ -130,9 +153,9 @@ div.vote-paper {
 }
 
 .countdown{
-
-	text-align: center;
-
+  text-align: center;
+  margin: 0;
+  padding-top: 0;
 }
 
 .dashboard-title{
@@ -140,6 +163,10 @@ div.vote-paper {
 	font-size: 3em;
 	text-align: center;
 	margin: 20px;
-
->>>>>>> 72bba1479f4957e4cc2e5ecf6bd0b729bcb91c4d
 }
+
+.radio-inputs {
+	font-family: 'Roboto', sans-serif;
+}
+
+
