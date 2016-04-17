@@ -48,7 +48,7 @@ export default class Login extends Component{
 		    fontSize: 24,
 		    paddingTop: 16,
 		    marginBottom: 12,
-		    fontWeight: 400,
+		    fontWeight: 400
 		  },
 		};
 
