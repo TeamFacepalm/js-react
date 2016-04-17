@@ -4,6 +4,7 @@ import SSF from 'react-simple-serial-form';
 import { hashHistory } from 'react-router';
 import { ajax } from 'jquery';
 import District from './district';
+import Cookies from 'js-cookie';
 
 export default class Dashboard extends Component{
 
@@ -56,6 +57,23 @@ export default class Dashboard extends Component{
 		console.log(this.districts);
 
 		let updateVotes = () => {
+
+
+			let votepolling = setInterval(updateVotes, 1000);
+			let loggedInUser = Cookies.get();
+			let Auth_Token = loggedInUser.auth_token;
+
+			////ajax stuff
+			ajax({url: 'https://warm-lowlands-16944.herokuapp.com/candidates', 
+				headers: {"Auth-Token": Auth_Token}}).then( data => {
+
+			console.log("data =>",data);
+
+		});
+
+		// 	////render general election aggregate data 
+
+		// 	/////dynamically render the districts and pass the data into their components
 			
 
 			myDoughnutChart.segments[0].value += Math.floor(Math.random()*14);
@@ -93,17 +111,6 @@ export default class Dashboard extends Component{
 		}
 
 
-		let votepolling = setInterval(updateVotes, 1000);
-
-
-		////ajax stuff
-		// ajax().then( data => {
-
-		// 	////render general election aggregate data 
-
-		// 	/////dynamically render the districts and pass the data into their components
-
-		// })
 		let data = [
 				    {
 				        value: 0,
