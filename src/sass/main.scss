@@ -31,6 +31,7 @@ body{
   font-size: 52px;
   margin: 0;
   margin-bottom: 10px;
+  color: #8A8A8A;
 }
 
 .login-wrapper, .form-wrapper{
@@ -38,14 +39,21 @@ body{
 	margin: auto !important;
 }
 
+
 .pink-shape {
-	position:absolute;
-	z-index: -2;
+  position: absolute;
+  top: -17.5%;
+  left: 0.95%;
+  z-index: 0;
+  width: 100%;
 }
 
-.voter-logo img{
-	width:200px;
-
+.yellow-field{
+  background-color: #f7fdb4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 118.5%;
 }
 
 .login-wrapper {
