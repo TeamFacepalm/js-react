@@ -99,7 +99,7 @@ export default class TabsExampleControlled extends Component {
       >
         <Tab label="Login" value="a" onClick={this.handleChange.bind(TabsExampleControlled, "a")}>
           <div  className="login-signup-wrapper">
-            <Paper zDepth={1} style={{padding: 20, paddingBottom: 140}}>
+            <Paper zDepth={1} style={{padding: 20, paddingBottom: 140, backgroundColor: 'transparent'}}>
 
 
 				<h1 className="form_header">Login to Vote!</h1>

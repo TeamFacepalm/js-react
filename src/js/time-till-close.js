@@ -44,14 +44,11 @@ export default class TimeTillClose extends Component{
 
 		// loggedInUser = null;
 		////empty cookies for user
-		alert('clicked');
 		Cookies.remove('username');
 		Cookies.remove('auth_token');
 		Cookies.remove('id');
 		hashHistory.replace('/');
 		
-		
-
 	}
 
 	render(){
