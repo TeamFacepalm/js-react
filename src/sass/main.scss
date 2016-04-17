@@ -28,12 +28,11 @@ body{
 
 .login-wrapper, .form-wrapper{
 
-	width: 800px !important;
 	margin: auto !important;
 }
 
 .login-wrapper {
-
+	width: 100%;
 }
 
 .login-signup-wrapper{
@@ -105,7 +104,6 @@ justify-content: space-around;
 
 .blue-header {
 	margin: auto;
-	width: 800px;
 	height: 90px;
 	background-color: #00bcd4;
 	padding: 0;
@@ -158,6 +156,8 @@ justify-content: space-around;
   text-align: center;
   margin: 0;
   padding-top: 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
 
 .dashboard-title{

@@ -41,7 +41,7 @@ export default class Vote extends Component{
 										  	<div><input className="radio-inputs" type="radio" name="radio-input">Candidate 2</input></div>
 									</div>
 								</div>
-								<div className="vote-submit-btn">	<RaisedButton label="Submit" secondary={true}/></div>
+								<div className="vote-submit-btn">	<RaisedButton type="submit" label="Submit" secondary={true}/></div>
 					
 					</SSF>
 			</div>
