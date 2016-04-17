@@ -197,7 +197,7 @@ export default class Dashboard extends Component{
 						<div>Total votes: {this.state.trumpValue}</div>
 					</div>
 
-					<canvas ref={canvas => this.canvas = canvas} width="400" height="400"></canvas>
+					<canvas ref={canvas => this.canvas = canvas} width="450" height="450"></canvas>
 					
 					<div className="bernie-data">
 						
@@ -228,25 +228,3 @@ export default class Dashboard extends Component{
 	}
 
 }
-
-
-// {this.districts.map( district => {
-
-// 						<div>
-
-// 						<h1>{district.title}</h1>
-// 						<div>{district.bernieValue}</div>
-// 						<div>{district.trumpValue}</div>
-
-// 						</div>
-
-// 					})}
-
-
-
-
-// {districts.map( district => {
-
-// 					<District bernieVotes={district.bernieValue} trumpVotes={district.trumpValue} title={district.title}/>
-
-// 				})}

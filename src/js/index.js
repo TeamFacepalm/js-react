@@ -7,6 +7,7 @@ import login from './login';
 import vote from './vote';
 import dashboard from './dashboard';
 import TimeTillClose from './time-till-close';
+import Cookies from 'js-cookie';
 
 
 render((

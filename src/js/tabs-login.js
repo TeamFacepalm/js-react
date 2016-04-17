@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import SSF from 'react-simple-serial-form';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import TextField from 'material-ui/lib/text-field';
 import MaterialUi from 'material-ui';
 import RaisedButton from 'material-ui/lib/raised-button';
@@ -12,7 +12,10 @@ import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import Dropzone from 'react-dropzone';
 import SignUp from './sign-up';
+import Cookie from 'js-cookie';
 
+let loggedInUser = null;
+window.loggedInUser;
 
 const styles = {
   headline: {
@@ -41,16 +44,6 @@ export default class TabsExampleControlled extends Component {
 
   };
 
-  dataHandler(data){
-
-  	////POST data
-
-  	console.log(data);
-
-  	hashHistory.push('/voting/vote');
-
-  }
-
   dropHandler([file]){
 
   	this.setState({
@@ -58,6 +51,43 @@ export default class TabsExampleControlled extends Component {
   		preview: file.preview
 
   	});
+
+  }
+
+  dataHandler(user){
+
+    // let data = new FormData();
+    // data.append('first_name', user.firstName);
+    // data.append('last_name', user.lastName);
+    // data.append('email', user.email);
+    // data.append('password', user.photo);
+    // data.append('district_id', user.districtName);
+
+    // ajax({
+    //     url: 'https://safe-ridge-87798.herokuapp.com/signups',
+    //     type: 'POST',
+    //     data: data,
+    //     cache: false,
+    //     dataType: 'json',
+    //     processData: false,
+    //     contentType: false
+    //   }).then( (response, statusText, { status } ) => {
+      
+    //     if (status == 201){
+
+    //       console.log('success');
+
+    //       Cookies.set('username', response.user.username);
+    //       Cookies.set('auth_token', response.user.auth_token);
+    //       Cookies.set('id', response.user.id);
+
+
+    //       loggedInUser = Cookies.get();
+    //       console.log(loggedInUser);
+    //       hashHistory.push('/voting/vote');
+
+
+    //     }
 
   }
 
@@ -71,7 +101,9 @@ export default class TabsExampleControlled extends Component {
           <div  className="login-signup-wrapper">
             <Paper zDepth={1} style={{padding: 20, paddingBottom: 140}}>
 
-				<h1 className="form_header">VOTER</h1>
+
+				<h1 className="form_header">Login to Vote!</h1>
+        <Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '20'} } label="See the current results"/> </Link>
 				<SSF onData={this.dataHandler}>   
 					<TextField
 					      hintText="Email"

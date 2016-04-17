@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { hashHistory } from 'react-router';
+import Cookies from 'js-cookie';
 
 export default class TimeTillClose extends Component{
 
@@ -39,11 +40,25 @@ export default class TimeTillClose extends Component{
 		}, 1000);
 	}
 
+	logout (){
+
+		// loggedInUser = null;
+		////empty cookies for user
+		alert('clicked');
+		Cookies.remove('username');
+		Cookies.remove('auth_token');
+		Cookies.remove('id');
+		hashHistory.replace('/');
+		
+		
+
+	}
+
 	render(){
 
 		return(
 			<div className="blue-header">
-				<i className="fa fa-sign-out" aria-hidden="true"></i>
+				<i className="fa fa-sign-out" aria-hidden="true" onClick={this.logout}></i>
 					<h1 className="countdown">Polls close in {this.state.countdown} seconds.</h1>
 					{this.props.children}
 				</div>

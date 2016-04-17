@@ -8,8 +8,15 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import Paper from 'material-ui/lib/paper';
 import Tabs from 'material-ui/lib/tabs/tabs';
 import Tab from 'material-ui/lib/tabs/tab';
-import TabsExampleControlled from './tabs-login'
+import TabsExampleControlled from './tabs-login';
+import Cookies from 'js-cookie';
 
+
+if(Cookies.get('username')){
+
+	hashHistory.push('/voting/vote');
+
+}
 
 
 export default class Login extends Component{
@@ -48,7 +55,7 @@ export default class Login extends Component{
 		    fontSize: 24,
 		    paddingTop: 16,
 		    marginBottom: 12,
-		    fontWeight: 400,
+		    fontWeight: 400
 		  },
 		};
 

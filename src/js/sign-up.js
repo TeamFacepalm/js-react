@@ -4,11 +4,14 @@ import { render } from 'react-dom';
 import Dropzone from 'react-dropzone';
 import SSF from 'react-simple-serial-form';
 import { ajax } from 'jquery';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import TextField from 'material-ui/lib/text-field';
 import MaterialUi from 'material-ui';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Paper from 'material-ui/lib/paper';
+import Cookies from 'js-cookie';
+
+let loggedInUser = null;
 
 export default class SignUp extends Component {
 
@@ -24,31 +27,75 @@ export default class SignUp extends Component {
 
 	dropHandler([file]){
 
+		console.log('file in drophandler', file);
+
 		this.setState({
 
 			preview: file.preview
 
 		});
 
-	}
+		this.file = file;
 
-
-	dataHandler(data){
-
-		///post data
-		console.log(data);
-
-		hashHistory.push('/voting/vote');
+		console.log('file attached to this.file drophandler', this.file);
 
 	}
+
+
+	dataHandler(newUser){
+
+	console.log('user', newUser);
+
+    let data = new FormData();
+    data.append('first_name', newUser.firstName);
+    data.append('last_name', newUser.lastName);
+    data.append('dob', newUser.DOB);
+    data.append('email', newUser.email);
+    data.append('ssn', newUser.SSN);
+    data.append('password', newUser.photo);
+    data.append('district_id', newUser.district-name);
+    data.append('password', newUser.password);
+    data.append('avatar', this.file);
+
+    console.log('data =>', data);
+
+    ajax({
+        url: 'https://warm-lowlands-16944.herokuapp.com/users',
+        type: 'POST',
+        data: data,
+        cache: false,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      }).then( (response, statusText, { status } ) => {
+      
+        if (status == 201){
+
+          console.log('success');
+
+          Cookies.set('username', response.user.username);
+          Cookies.set('auth_token', response.user.auth_token);
+          Cookies.set('id', response.user.id);
+
+
+          loggedInUser = Cookies.get();
+          console.log(loggedInUser);
+          hashHistory.push('/voting/vote');
+      	}
+
+
+        })
+
+  }////end of datahandler
 
 	render() {
 		return (
 				<div className="form-wrapper">
 
 					<Paper zDepth={1} style={{padding: 20}}>
-						<h1 className="form_header">Create Account</h1>
-							<SSF onData={this.dataHandler}>
+						<h1 className="form_header">Create Account to Vote!</h1>
+							<Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '20'} } label="See the current results"/> </Link>
+							<SSF onData={::this.dataHandler}>
 							  <div className="form-wrapper">
 
 								<select className="select-btn" name="districtName">
@@ -66,11 +113,20 @@ export default class SignUp extends Component {
 								      floatingLabelText="First Name"
 								      name="firstName"
 								    /><br/>
+								
 								<TextField
 								      hintText="Last Name"
 								      floatingLabelText="Last Name"
 								      name="lastName"
 								    /><br/>
+								<TextField
+								      hintText="Password"
+								      floatingLabelText="Password"
+								      type="password"
+								      name="password"
+								    /><br/>
+
+
 								<TextField
 								      hintText="Date of Birth"
 								      floatingLabelText="04/17/16"

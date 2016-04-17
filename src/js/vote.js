@@ -7,6 +7,13 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import RadioButtonGroup from 'material-ui/lib/radio-button-group';
 import FontIcon from 'material-ui/lib/svg-icons/action/exit-to-app';
 import Colors from 'material-ui/lib/styles/colors';
+import Cookies from 'js-cookie';
+
+if(!Cookies.get('username')){
+
+	hashHistory.push('/');
+
+}
 
 
 export default class Vote extends Component{
