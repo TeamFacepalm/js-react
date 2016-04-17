@@ -54,20 +54,17 @@ export default class Dashboard extends Component{
 	componentDidMount(){
 
 
-		console.log(this.districts);
-
 		let updateVotes = () => {
 
 
-			let votepolling = setInterval(updateVotes, 1000);
-			let loggedInUser = Cookies.get();
+			
 			let Auth_Token = loggedInUser.auth_token;
 
 			////ajax stuff
 			ajax({url: 'https://warm-lowlands-16944.herokuapp.com/candidates', 
 				headers: {"Auth-Token": Auth_Token}}).then( data => {
 
-			console.log("data =>",data);
+				console.log("data =>", data);
 
 		});
 
@@ -98,9 +95,6 @@ export default class Dashboard extends Component{
 
 			});	
 
-			console.log(this.props.countdown);		
-
-
 			if (this.props.countdown <= 1){
 
 				clearInterval(votepolling);
@@ -109,6 +103,9 @@ export default class Dashboard extends Component{
 			}
 
 		}
+
+		let votepolling = setInterval(updateVotes, 1000);
+			let loggedInUser = Cookies.get();
 
 
 		let data = [
@@ -162,26 +159,11 @@ export default class Dashboard extends Component{
 				
 	}
 
-	// updateDashboard(){
-
-	// 		console.log(myDoughnutChart.segments[0].value);
-
-	// 	}
-
 
 	render(){
 
-
-		// var bernieStyle = {
-		// 	  color: 'white',
-		// 	  backgroundImage: 'url(' + imgUrl + ')',
-		// 	  WebkitTransition: 'all', // note the capital 'W' here
-		// 	  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
-		// 	};
-
-		console.log("im rendering");
-
 		let { trumpPercent } = this.state;
+		let { berniePercent } = this.state;
 
 		return(
 
@@ -192,7 +174,7 @@ export default class Dashboard extends Component{
 				<div className="dashboard-info">
 
 					<div className="trump-data">
-						<div>Candidate Trump: {(trumpPercent * 100).toFixed(2)}%</div>
+						<div>Candidate <b>Trump</b>: {(trumpPercent * 100).toFixed(2)}%</div>
 						<div>Total votes: {this.state.trumpValue}</div>
 					</div>
 
@@ -200,7 +182,7 @@ export default class Dashboard extends Component{
 					
 					<div className="bernie-data">
 						
-						<div>Candidate Sanders: {(this.state.berniePercent * 100).toFixed(2)}%</div>
+						<div>Candidate <b>Sanders</b>: {(this.state.berniePercent * 100).toFixed(2)}%</div>
 						<div>Total votes: {this.state.bernieValue}</div>
 
 					</div>
@@ -213,10 +195,9 @@ export default class Dashboard extends Component{
 					{this.districts.map( district => 
 						<div className="district" key={district.title}>
 							<div className="district-title">{district.title}</div>
-							<div style={{borderBottom: '10px solid #5B90BF', width: `${((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Bernie: {((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
-
-							<div style={{borderTop: '10px solid #F7464A', width: `${((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
-							<div style={{borderTop: '10px solid #F7464A', width: `${trumpPercent*100}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+							<div style={{borderBottom: '10px solid #5B90BF', width: `${berniePercent*100 + Math.random()*3}%`}}>Percent for Bernie: {(berniePercent*100).toFixed(2)}%</div>
+							
+							<div style={{borderTop: '10px solid #F7464A', width: `${trumpPercent*100 + Math.random()*3}%`}}>Percent for Trump: {(trumpPercent*100).toFixed(2)}%</div>
 
 						</div>)}
 
@@ -230,3 +211,10 @@ export default class Dashboard extends Component{
 	}
 
 }
+
+//////old district stuff
+// <div style={{borderBottom: '10px solid #5B90BF', width: `${((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Bernie: {((district.bernieValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+
+// 							<div style={{borderTop: '10px solid #F7464A', width: `${((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%`}}>Percent for Trump: {((district.trumpValue / (district.bernieValue + district.trumpValue))*100).toFixed(2)}%</div>
+
+
