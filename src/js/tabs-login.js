@@ -95,6 +95,7 @@ export default class TabsExampleControlled extends Component {
     return (
       <Tabs
         value={this.state.value}
+        // style={{backgroundColor: `#8A8A8A`}}
         // onChange={this.handleChange}
       >
         <Tab label="Login" value="a" onClick={this.handleChange.bind(TabsExampleControlled, "a")}>
@@ -102,8 +103,8 @@ export default class TabsExampleControlled extends Component {
             <Paper zDepth={1} style={{padding: 20, paddingBottom: 140, backgroundColor: 'transparent'}}>
 
 
-				<h1 className="form_header">Login to Vote!</h1>
-        <Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '20'} } label="See the current results"/> </Link>
+				<h1 className="form_header">VOTER</h1>
+       
 				<SSF onData={this.dataHandler}>   
 					<TextField
 					      hintText="Email"
@@ -117,6 +118,7 @@ export default class TabsExampleControlled extends Component {
 							      name="password"
 							/><br/>
             <div className="login-submit-btn">
+            <Link to="/voting/dashboard" className="go-to-dash"><RaisedButton primary={true} style={{margin: '20'} } label="See the current results"/> </Link>
 						<RaisedButton type="submit" label="Login" secondary={true} />   
 				    </div>
         </SSF>
