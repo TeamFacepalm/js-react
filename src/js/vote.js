@@ -33,11 +33,11 @@ export default class Vote extends Component{
 		      	</div>
 						    <div className="vote-div-candidates">
 						    	<div className="top-photo">
-												<img className="candidate-1-img" src="http://fillmurray.com/100/100"/>
+												<img className="candidate-1-img" src="http://fillmurray.com/200/200"/>
 												<div><input className="radio-inputs" type="radio" name="radio-input">Candidate 1</input></div>
 									</div>
 									<div className="top-photo">  	
-										  	<img className="candidate-1-img" src="http://fillmurray.com/100/100"/>
+										  	<img className="candidate-1-img" src="http://fillmurray.com/200/200"/>
 										  	<div><input className="radio-inputs" type="radio" name="radio-input">Candidate 2</input></div>
 									</div>
 								</div>

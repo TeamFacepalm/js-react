@@ -7,7 +7,7 @@
 @import 'font-awesome/scss/font-awesome';
 
 body{
-
+	
 	margin: 0 !important;
 	padding: 0 !important;
 	box-sizing: border-box;
@@ -26,17 +26,41 @@ body{
 
 }
 
-.login-wrapper, .form-wrapper{
+.form_header{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 52px;
+  margin: 0;
+  margin-bottom: 10px;
+}
 
+.login-wrapper, .form-wrapper{
+	position:relative;
 	margin: auto !important;
 }
 
+.pink-shape {
+	position:absolute;
+	z-index: -2;
+}
+
+.voter-logo img{
+	width:200px;
+
+}
+
 .login-wrapper {
-	width: 100%;
+
 }
 
 .login-signup-wrapper{
+	// background-color: transparent;
+	top:0;
+	left:0;
 	text-align: center;
+}
+
+div.login-signup-wrapper div {
+	background-color: transparent;
 }
 
 .login-submit-btn {
@@ -196,3 +220,6 @@ justify-content: space-around;
 	}
 }
 
+.tabs-header {
+	color: #a6a6a6;
+}

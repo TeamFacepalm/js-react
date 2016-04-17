@@ -51,7 +51,7 @@ export default class SignUp extends Component {
 							<SSF onData={this.dataHandler}>
 							  <div className="form-wrapper">
 
-								<select className="select-btn" name="district-name">
+								<select className="select-btn" name="districtName">
 
 									<option value={1}>District 1</option>
 									<option value={2}>District 2</option>

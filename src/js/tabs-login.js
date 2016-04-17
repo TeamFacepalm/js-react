@@ -71,7 +71,7 @@ export default class TabsExampleControlled extends Component {
           <div  className="login-signup-wrapper">
             <Paper zDepth={1} style={{padding: 20, paddingBottom: 140}}>
 
-				<h1 className="form_header">Login</h1>
+				<h1 className="form_header">VOTER</h1>
 				<SSF onData={this.dataHandler}>   
 					<TextField
 					      hintText="Email"

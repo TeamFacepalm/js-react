@@ -55,6 +55,8 @@ export default class Login extends Component{
 		return(
 
 				<div className="login-wrapper">
+				<img className="pink-shape" src="http://i.imgur.com/mzWS3dH.png"/>
+				<img className="voter-logo" src="http://i.imgur.com/Aw6U7kw.png"/>
 
 					<TabsExampleControlled />
 			
