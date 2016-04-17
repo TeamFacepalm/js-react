@@ -14,7 +14,6 @@ export default class TimeTillClose extends Component{
 
 		}
 
-
 	}
 
 	countdownMsg(){
@@ -24,6 +23,8 @@ export default class TimeTillClose extends Component{
 	}
 
 	componentDidMount() {
+
+
 
 		let countInt = setInterval(() => {
 			let { countdown } = this.state;
@@ -57,7 +58,7 @@ export default class TimeTillClose extends Component{
 			<div className="blue-header">
 				<i className="fa fa-sign-out" aria-hidden="true" onClick={this.logout}></i>
 					<h1 className="countdown">Polls close in {this.state.countdown} seconds.</h1>
-					{this.props.children}
+					{React.cloneElement(this.props.children, { countdown: this.state.countdown })}
 				</div>
 		);
 	}

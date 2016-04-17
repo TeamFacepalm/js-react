@@ -13,6 +13,7 @@ import MenuItem from 'material-ui/lib/menus/menu-item';
 import Dropzone from 'react-dropzone';
 import SignUp from './sign-up';
 import Cookie from 'js-cookie';
+import { ajax } from 'jquery';
 
 let loggedInUser = null;
 window.loggedInUser;
@@ -56,38 +57,36 @@ export default class TabsExampleControlled extends Component {
 
   dataHandler(user){
 
-    // let data = new FormData();
-    // data.append('first_name', user.firstName);
-    // data.append('last_name', user.lastName);
-    // data.append('email', user.email);
-    // data.append('password', user.photo);
-    // data.append('district_id', user.districtName);
+    let data = new FormData();
+    
+    data.append('email', user.email);
+    data.append('password', user.photo);
 
-    // ajax({
-    //     url: 'https://safe-ridge-87798.herokuapp.com/signups',
-    //     type: 'POST',
-    //     data: data,
-    //     cache: false,
-    //     dataType: 'json',
-    //     processData: false,
-    //     contentType: false
-    //   }).then( (response, statusText, { status } ) => {
+    ajax({
+        url: 'https://warm-lowlands-16944.herokuapp.com/login',
+        type: 'POST',
+        data: data,
+        cache: false,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      }).then( (response, statusText, { status } ) => {
       
-    //     if (status == 201){
+        if (status == 201){
 
-    //       console.log('success');
+          console.log('success');
 
-    //       Cookies.set('username', response.user.username);
-    //       Cookies.set('auth_token', response.user.auth_token);
-    //       Cookies.set('id', response.user.id);
-
-
-    //       loggedInUser = Cookies.get();
-    //       console.log(loggedInUser);
-    //       hashHistory.push('/voting/vote');
+          Cookies.set('username', response.user.username);
+          Cookies.set('auth_token', response.user.auth_token);
+          Cookies.set('id', response.user.id);
 
 
-    //     }
+          loggedInUser = Cookies.get();
+          console.log(loggedInUser);
+          hashHistory.push('/voting/vote');
+
+
+        }});
 
   }
 
@@ -98,6 +97,7 @@ export default class TabsExampleControlled extends Component {
         // style={{backgroundColor: `#8A8A8A`}}
         // onChange={this.handleChange}
       >
+
         <Tab style={{backgroundColor: `#8A8A8A`}} label="Login" value="a" onClick={this.handleChange.bind(TabsExampleControlled, "a")}>
           <div  className="login-signup-wrapper">
             <Paper zDepth={1} style={{padding: 20, paddingBottom: 140, backgroundColor: 'transparent'}}>
