@@ -42,7 +42,7 @@ export default class Vote extends Component{
 
 						    <div className="vote-div-candidates">
 						    	<div className="top-photo">
-												<img className="candidate-1-img" src="http://40.media.tumblr.com/d60967c9259867dd7a7a76721453c372/tumblr_nv3ta4kOkN1uh0k0ao1_1280.png"/>
+												<img className="candidate-1-img" src="http://www.redstate.com/uploads/2016/02/483208412-real-estate-tycoon-donald-trump-flashes-the-thumbs-up.jpg.CROP_.promo-xlarge2.jpg"/>
 												<div className="radio-div"><input className="radio-inputs" type="radio" name="radio-input">Candidate 1</input></div>
 									</div>
 									<div className="top-photo">  	
